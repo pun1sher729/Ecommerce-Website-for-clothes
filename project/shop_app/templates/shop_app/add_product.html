@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        /* Header Styles */
+    header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+    header h1 {
+      font-size: 36px;
+      margin: 0;
+    }
+        body {
+            padding: 50px;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><h1>Add Product</h1></li>
+        </ul>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              {% if login == 0 %}
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'seller_signup_view' %}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'seller_login_view' %}">Login</a>
+              </li>
+               {% endif %}
+               {% if login == 1 %}
+                <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="/" >{{cur_email}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'seller_logout' %}">Log out</a>
+              </li>
+                {% endif %}
+            </ul>
+          </div>
+      </nav>
+    
+  </header>
+    <div class="container">
+        <form action="add_product" method="post" enctype="multipart/form-data">{% csrf_token %}
+            <div class="form-group">
+                <label for="name">Product Name:</label>
+                <input type="text" class="form-control" id="name" name="product_name" placeholder="Enter product name">
+            </div>
+            <div class="form-group">
+                <label for="id">Product ID:</label>
+                <input type="text" class="form-control" id="id" name="product_id" placeholder="Enter product ID">
+            </div>
+            <div class="form-group">
+                <label for="picture">Product Image:</label>
+                <input type="file" class="form-control-file" id="picture" name="picture" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="price">Product Price:</label>
+                <input type="text" class="form-control" id="price" name="price" placeholder="Enter product price">
+            </div>
+            <div class="form-group">
+                <label for="description">Product Description:</label>
+                <textarea class="form-control" id="description" rows="3" name="description" placeholder="Enter product description"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="male_category">Male Category:</label>
+                <input type="checkbox" id="male_category" name="male_category">
+            </div>
+            <div class="form-group">
+                <label for="female_category">Female Category:</label>
+                <input type="checkbox" id="female_category" name="female_category">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+    </div>
+    <br />
+    <br />
+    <div class="container">
+        <ul>
+            {% if login == 1 %}
+                <button class="btn btn-primary"><a style="color:black;" href="{% url 'seller_home' %}">Dashboard</a></button>
+                <button class="btn btn-primary"><a style="color:black;" href="{% url 'seller_logout' %}">Log out</a></button>
+            {% endif %}
+        </ul>
+    </div>
+</body>
+</html>

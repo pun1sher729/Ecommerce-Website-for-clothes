@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+    .card {
+      margin-top: 50px;
+      max-width: 400px;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .card-header {
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      font-weight: bold;
+      font-size: 24px;
+      padding: 20px;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input[type="email"], input[type="password"] {
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ced4da;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 5px;
+    }
+    .btn-login {
+      background-color: #007bff;
+      color: #fff;
+      border-radius: 5px;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn-login:hover {
+      background-color: #0069d9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 mx-auto">
+        <div class="card">
+          <div class="card-header">
+            Login
+          </div>
+          <div class="card-body">
+              <strong style="color:red;">{{op}}</strong>
+		    <br /><br />
+            <form method="post">{% csrf_token %}
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Enter email">
+              </div>
+              <div class="form-group">
+                <label for="passwd">Password</label>
+                <input type="password" class="form-control" id="passwd" name="passwd" placeholder="Password">
+              </div>
+              <button type="submit" class="btn btn-login btn-block">Login</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

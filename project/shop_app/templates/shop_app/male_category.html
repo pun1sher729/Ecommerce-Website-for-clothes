@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Men's Category</title>
+    <style>
+        header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search {
+  display: flex;
+}
+
+.search input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #333;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.search button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+
+        .featured-products {
+            padding: 50px;
+        }
+        .product-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 1400px;
+        }
+        .product {
+            width: 23%;
+            margin-bottom: 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            padding: 20px;
+        }
+
+        .product img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .product h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .product p {
+            color: #888;
+            margin-bottom: 20px;
+        }
+
+        .product a {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'female_category_view' %}">Women</a></li>
+          <li><a href="{% url 'male_category_view' %}">Men</a></li>
+        </ul>
+        <div class="search">
+           <form action="search" method="post">{% csrf_token %}
+          <input type="text" placeholder="Search" name="Search">
+          <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              {% if login == 0 %}
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'user_signup_view' %}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'user_login_view' %}">Login</a>
+              </li>
+               {% endif %}
+               {% if login == 1 %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color:black;" href="{% url 'view_cart' %}" >View Cart</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="/" >{{cur_email}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'logout' %}">Log out</a>
+              </li>
+                {% endif %}
+            </ul>
+          </div>
+      </nav>
+    </header>
+    <section class="featured-products">
+        <form action="add_to_cart" method="post"> {% csrf_token %}
+        <div class="product-grid">
+            {% for product in products %}
+            <div class="product">
+                <img src="{{product.picture.url}}" alt="Product 1">
+                <h3>{{product.product_name}}</h3>
+                <p>{{product.description}}</p>
+                <p>₹{{product.price}}</p>
+                <button type="submit" name="add" value="{{product.product_id}}">Add to Cart</button>
+          </div>
+            {% endfor %}
+        </div>
+        </form>
+    </section>
+</body>
+</html>

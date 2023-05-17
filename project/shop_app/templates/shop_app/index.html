@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>StyleSavvy</title>
+    <style>
+      * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search {
+  display: flex;
+}
+
+.search input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #333;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.search button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.featured-products {
+  padding: 50px;
+}
+
+.featured-products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: 23%;
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.product img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product p {
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.product a {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+footer ul li {
+  margin-right: 20px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+header {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0 50px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+nav ul li a {
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.search {
+  display: flex;
+}
+
+.search input[type="text"] {
+  border: none;
+  border-bottom: 2px solid #333;
+  padding: 5px 10px;
+  margin-right: 10px;
+}
+
+.search button {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.featured-products {
+  padding: 50px;
+}
+
+.featured-products h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.product {
+  width: 23%;
+  margin-bottom: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.product img {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.product p {
+  color: #888;
+  margin-bottom: 20px;
+}
+
+.product a {
+  display: inline-block;
+  background-color: #333;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+footer ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+footer ul li {
+  margin-right: 20px;
+}
+
+footer ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li><a href="{% url 'female_category_view' %}">Women</a></li>
+          <li><a href="{% url 'male_category_view' %}">Men</a></li>
+        </ul>
+        <div class="search">
+            <form action="search" method="post">{% csrf_token %}
+          <input type="text" placeholder="Search" name="Search">
+          <button type="submit">Search</button>
+            </form>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav">
+              {% if login == 0 %}
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'user_signup_view' %}">Sign Up</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'user_login_view' %}">Login</a>
+              </li>
+               {% endif %}
+               {% if login == 1 %}
+                <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="/" >{{cur_email}}</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" style="color:black;" href="{% url 'logout' %}">Log out</a>
+              </li>
+                {% endif %}
+            </ul>
+          </div>
+      </nav>
+    </header>
+    <main>
+      <section class="banner">
+          {% load static %}
+        <img src="{% static '/project/logo.png' %}" alt="Banner">
+      </section>
+      <section class="featured-products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+          <div class="product">
+            <img src="{% static '/project/product1.jpg' %}" alt="Product 1">
+            <h3>Shop for Men's T-shirt's online, exclusively at StyleSavvy.</h3>
+            <p>MRP: Rs. 999/- incl. of all taxes</p>
+            <a href="#">Buy Now</a>
+          </div>
+          <div class="product">
+            <img src="{% static '/project/product2.jpg' %}" alt="Product 2">
+            <h3>Shop for Solids: Grass Oversized T-Shirts at StyleSavvy</h3>
+            <p>MRP: Rs. 1499/- incl. of all taxes</p>
+            <a href="#">Buy Now</a>
+          </div>
+          <div class="product">
+            <img src="{% static '/project/product3.jpg' %}" alt="Product 3">
+            <h3>Official Licensed Black Panther Oversized Jersey.</h3>
+            <p>MRP: Rs. 1999/- incl. of all taxes</p>
+            <a href="#">Buy Now</a>
+          </div>
+          <div class="product">
+            <img src="{% static '/project/product4.jpg' %}" alt="Product 4">
+            <h3>Shop for Solids: Electric Blue Oversized Polos Online.</h3>
+            <p>MRP: Rs. 1499/- incl. of all taxes</p>
+            <a href="#">Buy Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Contact Us</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Use</a></li>
+      </ul>
+    </footer>
+  </body>
+</html>
